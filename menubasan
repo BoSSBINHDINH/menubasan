@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FF Tool</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .glow-text {
+            text-shadow: 0 0 15px #ff0000, 0 0 30px #ff7700, 0 0 45px #ffff00, 0 0 60px #00ff00, 0 0 75px #0000ff, 0 0 90px #8a2be2;
+            animation: rainbow-glow 1.5s linear infinite;
+        }
+        .glow-box {
+            box-shadow: 0 0 25px #ff0000, 0 0 50px #ffff00, 0 0 75px #00ff00;
+            animation: rainbow-box 2s linear infinite;
+        }
+        @keyframes rainbow-glow {
+            0% { text-shadow: 0 0 15px #ff0000, 0 0 30px #ff7700; }
+            16% { text-shadow: 0 0 15px #ffff00, 0 0 30px #00ff00; }
+            33% { text-shadow: 0 0 15px #0000ff, 0 0 30px #8a2be2; }
+            50% { text-shadow: 0 0 15px #ff00ff, 0 0 30px #ff1493; }
+            66% { text-shadow: 0 0 15px #00ffff, 0 0 30px #00bfff; }
+            83% { text-shadow: 0 0 15px #ff8c00, 0 0 30px #ff4500; }
+            100% { text-shadow: 0 0 15px #ff0000, 0 0 30px #ff7700; }
+        }
+        @keyframes rainbow-box {
+            0% { box-shadow: 0 0 25px #ff0000, 0 0 50px #ff0000; }
+            16% { box-shadow: 0 0 25px #ffff00, 0 0 50px #ffff00; }
+            33% { box-shadow: 0 0 25px #00ff00, 0 0 50px #00ff00; }
+            50% { box-shadow: 0 0 25px #0000ff, 0 0 50px #0000ff; }
+            66% { box-shadow: 0 0 25px #ff00ff, 0 0 50px #ff00ff; }
+            83% { box-shadow: 0 0 25px #00ffff, 0 0 50px #00ffff; }
+            100% { box-shadow: 0 0 25px #ff0000, 0 0 50px #ff0000; }
+        }
+        .hacker-bg {
+            background: #0a0a0a;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="hacker-bg min-h-screen text-green-500 font-mono overflow-y-auto relative">
+    <!-- Login Page -->
+    <div id="login-page" class="w-full max-w-md p-8 rounded-lg glow-box mx-auto my-auto absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold glow-text mb-2">FF TOOL</h1>
+            <p class="text-3xl font-bold glow-text">By BOSSdepzai</p>
+        </div>
+        
+        <form id="login-form" class="space-y-6">
+            <div>
+                <label for="username" class="block text-sm font-medium mb-1">Username</label>
+                <input type="text" id="username" class="w-full px-4 py-2 bg-black border border-green-500 rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Enter username">
+            </div>
+            
+            <div>
+                <label for="password" class="block text-sm font-medium mb-1">Password</label>
+                <input type="password" id="password" class="w-full px-4 py-2 bg-black border border-green-500 rounded focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Enter password">
+            </div>
+            
+            <button type="submit" class="w-full py-2 bg-green-900 hover:bg-green-800 text-white font-bold rounded transition duration-200 flex items-center justify-center">
+                <i class="fas fa-sign-in-alt mr-2"></i> LOGIN
+            </button>
+        </form>
+        
+        <div class="mt-6 text-center text-xs">
+            <p>For educational purposes only</p>
+        </div>
+    </div>
+    
+    <!-- Menu Page (hidden initially) -->
+    <div id="menu-page" class="hidden w-full max-w-4xl mx-auto p-8 rounded-lg glow-box mt-20">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold glow-text mb-2">MENU TOOL</h1>
+            <p class="text-sm">Welcome, BossDepTrai</p>
+            <div id="login-success" class="hidden mt-4 p-2 bg-green-900 text-white rounded text-sm">
+                <i class="fas fa-check-circle mr-2"></i> Đăng nhập thành công!
+            </div>
+        </div>
+        
+        <div class="flex flex-row gap-4 mb-8">
+            <div class="p-4 bg-black bg-opacity-50 rounded border border-green-500 transition">
+                <div class="flex justify-between items-center">
+                    <h3 class="font-bold text-lg flex items-center">
+                        <i class="fas fa-crosshairs mr-2"></i> 1. AIM BOT
+                    </h3>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="aimbot-toggle" class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"></div>
+                    </label>
+                </div>
+                <p class="text-xs mt-1">Precision aiming assistance</p>
+                <div id="aimbot-status" class="hidden mt-2 text-green-400 text-xs">
+                    <i class="fas fa-circle mr-1"></i> AIM BOT: Đã bật thành công
+                </div>
+            </div>
+            
+            <div class="p-4 bg-black bg-opacity-50 rounded border border-green-500 transition">
+                <div class="flex justify-between items-center">
+                    <h3 class="font-bold text-lg flex items-center">
+                        <i class="fas fa-user-edit mr-2"></i> 2. REGEDIT
+                    </h3>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="regedit-toggle" class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"></div>
+                    </label>
+                </div>
+                <p class="text-xs mt-1">System registry modifications</p>
+                <div id="regedit-status" class="hidden mt-2 text-green-400 text-xs">
+                    <i class="fas fa-circle mr-1"></i> REGEDIT: Đã bật thành công
+                </div>
+            </div>
+            
+            <div class="p-4 bg-black bg-opacity-50 rounded border border-green-500 transition">
+                <h3 class="font-bold text-lg flex items-center">
+                    <i class="fas fa-tachometer-alt mr-2"></i> 3. DPI SETTINGS
+                </h3>
+                <p class="text-xs mt-1">Mouse sensitivity adjustments (1000-3500)</p>
+                <div class="mt-3">
+                    <input type="range" id="dpi-slider" min="1000" max="3500" value="2000" step="100" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                    <div class="flex justify-between text-xs mt-1">
+                        <span>1000</span>
+                        <span id="dpi-value">2000 DPI</span>
+                        <span>3500</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-6 flex flex-col gap-4">
+            <button id="ff-normal" class="w-full py-2 bg-blue-900 hover:bg-blue-800 text-white font-bold rounded transition duration-200 flex items-center justify-center">
+                <i class="fas fa-gamepad mr-2"></i> BẬT FF THƯỜNG
+            </button>
+            
+            <button id="ff-max" class="w-full py-2 bg-purple-900 hover:bg-purple-800 text-white font-bold rounded transition duration-200 flex items-center justify-center">
+                <i class="fas fa-gamepad mr-2"></i> BẬT FF MAX
+            </button>
+        </div>
+        <div id="ff-launch-status" class="hidden mt-4 p-2 bg-green-900 text-white rounded text-sm text-center">
+            <i class="fas fa-check-circle mr-2"></i> Đã khởi động FF thành công! Đang chuyển hướng...
+        </div>
+        
+        <div class="mt-6 text-center text-xs">
+            <p>This is a fictional UI - No actual hacks provided</p>
+        </div>
+    </div>
+
+    <div id="features-activated" class="fixed bottom-4 left-0 right-0 flex justify-center hidden">
+        <div class="bg-green-900 text-white px-4 py-2 rounded-full glow-box flex items-center">
+            <i class="fas fa-check mr-2"></i> V đã bật thành công!
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if(username === 'bossdeptrai' && password === 'bosshaywin') {
+                document.getElementById('login-page').classList.add('hidden');
+                document.getElementById('menu-page').classList.remove('hidden');
+                document.getElementById('login-success').classList.remove('hidden');
+                
+                // Add typing animation effect
+                const menuItems = document.querySelectorAll('#menu-page h3');
+                menuItems.forEach((item, index) => {
+                    item.style.opacity = '0';
+                    setTimeout(() => {
+                        item.style.transition = 'opacity 0.5s ease';
+                        item.style.opacity = '1';
+                    }, 200 * index);
+                });
+            } else {
+                alert('Invalid credentials! Try: bossdeptrai / bosshaywin');
+            }
+        });
+        
+        // Add some terminal-like effects
+        const terminalText = "Initializing system...\nChecking credentials...\nLoading modules...";
+        const terminalElement = document.createElement('div');
+        terminalElement.className = 'fixed bottom-0 left-0 p-4 text-xs opacity-70 hidden md:block';
+        terminalElement.style.fontFamily = 'monospace';
+        terminalElement.style.whiteSpace = 'pre';
+        document.body.appendChild(terminalElement);
+        
+        let i = 0;
+        const typeTerminal = () => {
+            if (i < terminalText.length) {
+                terminalElement.textContent += terminalText.charAt(i);
+                i++;
+                setTimeout(typeTerminal, Math.random() * 100);
+            }
+        };
+        
+        setTimeout(typeTerminal, 1000);
+
+        // Aimbot toggle functionality
+        document.getElementById('aimbot-toggle').addEventListener('change', function() {
+            const status = document.getElementById('aimbot-status');
+            const featuresActivated = document.getElementById('features-activated');
+            if(this.checked) {
+                status.classList.remove('hidden');
+                featuresActivated.classList.remove('hidden');
+                setTimeout(() => {
+                    featuresActivated.classList.add('hidden');
+                }, 2000);
+                setTimeout(() => {
+                    featuresActivated.classList.add('hidden');
+                }, 2000);
+            } else {
+                status.classList.add('hidden');
+                if(!document.getElementById('regedit-toggle').checked) {
+                    featuresActivated.classList.add('hidden');
+                }
+            }
+        });
+
+        // DPI slider functionality
+        const dpiSlider = document.getElementById('dpi-slider');
+        const dpiValue = document.getElementById('dpi-value');
+        dpiSlider.addEventListener('input', function() {
+            dpiValue.textContent = this.value + ' DPI';
+        });
+
+        // Regedit toggle functionality
+        document.getElementById('regedit-toggle').addEventListener('change', function() {
+            const status = document.getElementById('regedit-status');
+            const featuresActivated = document.getElementById('features-activated');
+            if(this.checked) {
+                status.classList.remove('hidden');
+                featuresActivated.classList.remove('hidden');
+            } else {
+                status.classList.add('hidden');
+                if(!document.getElementById('aimbot-toggle').checked) {
+                    featuresActivated.classList.add('hidden');
+                }
+            }
+        });
+
+        // FF launch functionality
+        document.getElementById('ff-normal').addEventListener('click', function() {
+            const status = document.getElementById('ff-launch-status');
+            status.classList.remove('hidden');
+            setTimeout(() => {
+                window.location.href = "https://ff.garena.com";
+            }, 1500);
+        });
+
+        document.getElementById('ff-max').addEventListener('click', function() {
+            const status = document.getElementById('ff-launch-status');
+            status.classList.remove('hidden');
+            setTimeout(() => {
+                window.location.href = "https://ff.garena.com";
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
